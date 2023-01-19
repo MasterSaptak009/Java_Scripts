@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // Define the gcd function
+      function gcd(a, b) {
+        // Base case: if b is 0, a is the gcd
+        if (b === 0) {
+          return a;
+        }
+        // Recursive case: find the gcd of b and the remainder of a divided by b
+        return gcd(b, a % b);
+      }
+      
+      window.onload = function() {
+        // Get the button and add an event listener
+        var button = document.getElementById("myButton");
+        button.addEventListener("click", function() {
+          // Get the input elements
+          var input1 = document.getElementById("input1");
+          var input2 = document.getElementById("input2");
+          // Get the output element
+          var output = document.getElementById("output");
+          // Call the gcd function and update the output element with the result
+          output.innerHTML = "GCD: " + gcd(input1.value, input2.value);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <input id="input1" type="number" placeholder="Enter first number"></input>
+    <input id="input2" type="number" placeholder="Enter second number"></input>
+    <button id="myButton">Calculate GCD</button>
+    <div id="output"></div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertion</title>
+  </head>
+  <body>
+    <script>
+      function BinaryToDecimal(num) {
+        return parseInt(num, 2);
+      }
+      console.log(BinaryToDecimal("11100"));
+
+      function DecimalToBinary(num) {
+        return num.toString(2);
+      }
+      console.log(DecimalToBinary(30));
+
+      function BinaryToHexa(num) {
+        return parseInt(num, 2).toString(16);
+      }
+      console.log(BinaryToDecimal(110111));
+
+      function HexaToBinary(num) {
+        return parseInt(num, 16).toString(2);
+      }
+      console.log(HexaToBinary("2a"));
+
+      function DecimalToHexa(num) {
+        return num.toString(16);
+      }
+      console.log(DecimalToHexa(26));
+
+      function HexaToDecimal(num) {
+        return parseInt(num, 16);
+      }
+      console.log(HexaToDecimal("5a"));
+    </script>
+  </body>
+</html>

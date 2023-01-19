@@ -1,0 +1,39 @@
+<!--radius and center of circle given by user then find if a point lies inside the circle or not-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Point inside circle</title>
+    </head>
+
+    <body>
+        <h1>Point inside circle</h1>
+        <form>
+            <label for="x">Enter x coordinate of point:</label>
+            <input type="number" id="x">
+            <label for="y">Enter y coordinate of point:</label>
+            <input type="number" id="y">
+            <label for="radius">Enter radius of circle:</label>
+            <input type="number" id="radius">
+            <label for="center">Enter center of circle:</label>
+            <input type="number" id="center">
+            <input type="button" value="Check" onclick="checkPoint()">
+        </form>
+        <p id="output"></p>
+    </body>
+    
+    <script>
+        function checkPoint() {
+            var x = document.getElementById("x").value;
+            var y = document.getElementById("y").value;
+            var radius = document.getElementById("radius").value;
+            var center = document.getElementById("center").value;
+            var distance = Math.sqrt(Math.pow(x - center, 2) + Math.pow(y - center, 2));
+            if (distance < radius) {
+                document.getElementById("output").innerHTML = "Point lies inside the circle";
+            } else {
+                document.getElementById("output").innerHTML = "Point lies outside the circle";
+            }
+        }
+    </script>
+</html>

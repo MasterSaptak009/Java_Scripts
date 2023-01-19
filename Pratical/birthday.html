@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BirthDay Calculator</title>
+</head>
+<body>
+    <label for="date">Enter date of birth:</label>
+            <input type="date" id="date">
+            <input type="button" value="Calculate" onclick="calculateAge()">
+        </form>
+        <p id="output"></p>
+</body>
+<script>
+    function calculateAge(){
+        let birth_date = new Date(document.getElementById("date").value);
+        let birth_date_day = birth_date.getDate();
+        let birth_date_month = birth_date.getMonth();
+        let birth_date_year = birth_date.getFullYear();
+
+        let today_date = new Date();
+        let today_day = today_date.getDate();
+        let today_month = today_date.getMonth();
+        let today_year = today_date.getFullYear();
+
+        let calculated_age = 0;
+        if(today_month> birth_date_month){
+            calculated_age = today_year -birth_date_year;
+        }else if(today_month == birth_date_month){
+            if(today_day>=birth_date_month) calculated_age = today_year -birth_date_year;
+            else calculated_age = today_year-birth_date_year-1;
+        }else{
+            calculated_age = today_year-birth_date_year-1;
+        }
+        let output_value = calculated_age;
+        document.getElementById("output").innerHTML = calculated_age;
+    }
+</script>
+</html>

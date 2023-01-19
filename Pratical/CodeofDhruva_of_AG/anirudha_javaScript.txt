@@ -1,0 +1,29 @@
+1. Enter date of birth of the user and display his age and current date.
+2. Take input from users in a web page, where the page will show the current date and time on
+loading, and show the sorted list. Sorting must be done using bubble sort, use JavaScript for
+sorting.
+3. Take input from users in a web page, where the page will show the current date and time on
+loading, and show the sorted list. Sorting must be done using selection sort, use JavaScript for
+sorting.
+4. Take input from users in a web page, where the page will show the current date and time on
+loading, and show the sorted list. Sorting must be done using insertion sort, use JavaScript for
+sorting.
+5. Count vowels and display it on the webpage using JS.
+6. Write a JavaScript program to swap pairs of adjacent digits of a given integer of even length
+7. Develop a calculator
+8. Reverse a given string
+9. Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.
+10. Write a JavaScript program to find the maximum integer n such that 1 + 2 + ... + n <= a given integer.
+11. Write a JavaScript program to find the number of elements which presents in both of the given arrays.
+12. In a given string change lower case letters to upper case and upper-case ones to lower-case one.
+13. Write a JavaScript program to create an array of prefix sums of the given array.
+
+In computer science, the prefix sum, cumulative sum, inclusive scan, or simply scan of a sequence of numbers x0, x1, x2, ... is a second sequence of numbers y0, y1, y2, ..., the sums of prefixes of the input sequence:
+y0 = x0
+y1 = x0 + x1
+y2 = x0 + x1+ x2
+...
+14. Write a JavaScript program to change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.
+15. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. Sorting must be done using Quick sort, use JavaScript for sorting.
+16. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. Sorting must be done using Merge sort, use JavaScript for sorting.
+17. Take input from users in a web page, where the page will show the current date and time on loading, and show the sorted list. Sorting must be done using Heap sort, use JavaScript

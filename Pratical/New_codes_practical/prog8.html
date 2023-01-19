@@ -1,0 +1,50 @@
+<!--addtion of same index array member of two different/same sized array-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>addtion of same index array member of two different/same sized array</title>
+    </head>
+
+    <body>
+        <h1>addtion of same index array member of two different/same sized array</h1>
+        <form>
+            <label for="array1">Enter array1:</label>
+            <input type="text" id="array1" size="50">
+            <br>
+            <label for="array2">Enter array2:</label>
+            <input type="text" id="array2" size="50">
+            <br>
+            <input type="button" value="Add" onclick="addArray()">
+        <p id="result"></p>
+    </body>
+
+    <script>
+        function addArray() {
+            var array1 = document.getElementById("array1").value.split(",");
+            var array2 = document.getElementById("array2").value.split(",");
+            var result = document.getElementById("result");
+            var array3 = [];
+
+            if(array1.length > array2.length) {
+                for(var i = 0; i < array1.length; i++) {
+                    if(array2[i] == undefined) {
+                        array3.push(parseInt(array1[i]) + 0);
+                    } else {
+                        array3.push(parseInt(array1[i]) + parseInt(array2[i]));
+                    }
+                }
+            } else {
+                for(var i = 0; i < array2.length; i++) {
+                    if(array1[i] == undefined) {
+                        array3.push(parseInt(array2[i]) + 0);
+                    } else {
+                        array3.push(parseInt(array1[i]) + parseInt(array2[i]));
+                    }
+                }
+            }
+
+            result.innerHTML = array3;
+        }
+    </script>
+</html>

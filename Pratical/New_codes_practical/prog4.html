@@ -1,0 +1,51 @@
+<!--Check if X, Y, Z coordinates are exists in a straight line in a 2D plane.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Check if X, Y, Z coordinates are exists in a straight line in a 2D plane.</title>
+    </head>
+    
+    <body>
+        <h1>Check if X, Y, Z coordinates are exists in a straight line in a 2D plane.</h1>
+        <form>
+            <label for="x1">Enter X1:</label>
+            <input type="number" id="x1">
+            <label for="y1">Enter Y1:</label>
+            <input type="number" id="y1">
+            <label for="x2">Enter X2:</label>
+            <input type="number" id="x2">
+            <label for="y2">Enter Y2:</label>
+            <input type="number" id="y2">
+            <label for="x3">Enter X3:</label>
+            <input type="number" id="x3">
+            <label for="y3">Enter Y3:</label>
+            <input type="number" id="y3">
+            <input type="button" value="Check" onclick="check()">
+        </form>
+        <p id="output"></p>
+    </body>
+    
+    
+    <script>
+        function check() {
+            var x1 = document.getElementById("x1").value;
+            var y1 = document.getElementById("y1").value;
+            var x2 = document.getElementById("x2").value;
+            var y2 = document.getElementById("y2").value;
+            var x3 = document.getElementById("x3").value;
+            var y3 = document.getElementById("y3").value;
+            var output = "";
+            if (x1 == x2 && x2 == x3) {
+                output = "X1, X2, X3 are in a straight line.";
+            } else if (y1 == y2 && y2 == y3) {
+                output = "Y1, Y2, Y3 are in a straight line.";
+            } else if ((x1 - x2) / (y1 - y2) == (x2 - x3) / (y2 - y3)) {
+                output = "X1, Y1, X2, Y2, X3, Y3 are in a straight line.";
+            } else {
+                output = "X1, Y1, X2, Y2, X3, Y3 are not in a straight line.";
+            }
+            document.getElementById("output").innerHTML = output;
+        }
+    </script>
+</html>

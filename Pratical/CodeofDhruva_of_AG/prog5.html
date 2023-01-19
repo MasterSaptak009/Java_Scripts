@@ -1,0 +1,32 @@
+<!--5. Count vowels and display it on the webpage using JS.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Count Vowels</title>
+    </head>
+
+    <body>
+        <h1>Count Vowels</h1>
+        <form>
+            <label for="text">Enter text:</label>
+            <input type="text" id="text" size="50">
+            <input type="button" value="Count" onclick="countVowels()">
+        </form>
+        <p id="output"></p>  
+    </body>
+
+    <script>
+        function countVowels() {
+            var text = document.getElementById("text").value;
+            var vowels = "aeiouAEIOU";
+            var count = 0;
+            for (var i = 0; i < text.length; i++) {
+                if (vowels.indexOf(text[i]) !== -1) {
+                    count++;
+                }
+            }
+            document.getElementById("output").innerHTML = "Number of vowels: " + count;
+        }
+    </script>
+</html>

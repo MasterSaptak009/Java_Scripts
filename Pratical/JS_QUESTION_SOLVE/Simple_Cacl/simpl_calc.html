@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My_Simple_Calculator</title>
+  </head>
+  <body onload="time()">
+    <span id="date"></span> <br />
+
+    <label for="">Input The First Number</label><br />
+    <input type="text" id="fnum" /><br />
+    <label for="">Input The Operator ( + or - or * or /) </label><br />
+    <input type="text" id="op" /><br />
+    <label for="">Input The Second Number</label><br />
+    <input type="text" id="snum" /><br />
+
+    <button value="Submit" onclick="mycalc()">Calculate</button><br />
+
+    <script>
+      function time() {
+        var date = new Date();
+        document.getElementById("date").innerHTML = date;
+      }
+
+      function mycalc() {
+        let fnum = parseFloat(document.getElementById("fnum").value);
+        let op = document.getElementById("op").value;
+        let snum = parseFloat(document.getElementById("snum").value);
+
+        if (op == "+") {
+          alert(fnum + snum);
+        } else if (op == "-") {
+          alert(fnum - snum);
+        } else if (op == "*") {
+          alert(fnum * snum);
+        } else if (op == "/") {
+          if (snum == 0) {
+            alert("Please input correct 2nd value");
+          } else {
+            alert(fnum / snum);
+          }
+        } else {
+          alert("Invalid Input");
+        }
+      }
+    </script>
+  </body>
+</html>

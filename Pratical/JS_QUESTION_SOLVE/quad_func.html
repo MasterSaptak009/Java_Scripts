@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic_Function</title>
+</head>
+<body>
+    
+<label for="">Input A</label>
+<input type="text" id="a">
+<label for="">Input B</label>
+<input type="text" id="b">
+<label for="">Input C</label>
+<input type="text" id="c">
+
+
+<button value="submit" onclick="findRoots()">Submit</button>
+
+<!-- <label for="">Output</label>
+<input type="text" id="show"> -->
+
+
+
+
+<script>
+
+// JavaScript program to find roots
+// of a quadratic equation
+
+    // Prints roots of quadratic
+    // equation ax * 2 + bx + x
+
+
+
+    function findRoots()
+    {
+        
+        
+let a = parseFloat(document.getElementById("a").value);
+let b = parseFloat(document.getElementById("b").value);
+let c = parseFloat(document.getElementById("c").value);
+
+//let show = document.getElementById("show").value;
+
+        if (a == 0) {
+           document.write("Invalid")
+            return;
+        }
+
+        let d = b * b - 4 * a * c;
+        let sqrt_val = Math.sqrt(Math.abs(d));
+
+        if (d > 0) {
+            document.write(
+                "Roots are real and different \n" + "<br/>");
+
+            document.write(
+                (-b + sqrt_val) / (2 * a) + "<br/>"
+                + (-b - sqrt_val) / (2 * a));
+        }
+        else if (d == 0) {
+            document.write(
+                "Roots are real and same \n" + "<br/>");
+
+            document.write(-b / (2 * a) + "<br/>"
+                            + -b / (2 * a)) ;
+        }
+        else // d < 0
+        {
+            document.write("Roots are complex \n");
+
+            document.write(-b / (2 * a) + " + i"
+                            + sqrt_val / (2 * a) + "<br/>"
+                            + -b / (2 * a)
+                            + " - i" + sqrt_val) / (2 * a) ;
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>

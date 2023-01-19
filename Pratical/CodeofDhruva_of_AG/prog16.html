@@ -1,0 +1,80 @@
+<!--16. Take input from users in a web page, where the page will show the current date and time on loading, 
+    and show the sorted list. Sorting must be done using Merge sort, use JavaScript for sorting.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sort using Merge Sort</title>
+    </head>
+
+    <body onload="displayDate()">
+        <h1>Sort using Merge Sort</h1>
+        <p>Current date and time: <span id="date"></span></p>
+        <form>
+            <label for="numbers">Enter numbers separated by commas:</label>
+            <input type="text" id="numbers" size="50">
+            <input type="button" value="Sort" onclick="sortNumbers()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function displayDate() {
+            var date = new Date();
+            document.getElementById("date").innerHTML = date;
+        }
+
+        function sortNumbers() {
+            var input = document.getElementById("numbers").value;
+            var numbers = input.split(",");
+            numbers = numbers.map(Number);
+            mergeSort(numbers, 0, numbers.length - 1);
+            document.getElementById("output").innerHTML = "Sorted numbers: " + numbers;
+        }
+
+        function mergeSort(numbers, left, right) {
+            if (left < right) {
+                var middle = Math.floor((left + right) / 2);
+                mergeSort(numbers, left, middle);
+                mergeSort(numbers, middle + 1, right);
+                merge(numbers, left, middle, right);
+            }
+        }
+
+        function merge(numbers, left, middle, right) {
+            var n1 = middle - left + 1;
+            var n2 = right - middle;
+            var leftArray = [];
+            var rightArray = [];
+            for (var i = 0; i < n1; i++) {
+                leftArray[i] = numbers[left + i];
+            }
+            for (var j = 0; j < n2; j++) {
+                rightArray[j] = numbers[middle + 1 + j];
+            }
+            var i = 0;
+            var j = 0;
+            var k = left;
+            while (i < n1 && j < n2) {
+                if (leftArray[i] <= rightArray[j]) {
+                    numbers[k] = leftArray[i];
+                    i++;
+                } else {
+                    numbers[k] = rightArray[j];
+                    j++;
+                }
+                k++;
+            }
+            while (i < n1) {
+                numbers[k] = leftArray[i];
+                i++;
+                k++;
+            }
+            while (j < n2) {
+                numbers[k] = rightArray[j];
+                j++;
+                k++;
+            }
+        }
+    </script>
+</html>

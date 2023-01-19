@@ -1,0 +1,128 @@
+<!--7. Develop a calculator-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+
+    <body>
+        <div class="calculator">
+            <input type="text" id="display" disabled>
+            <button onclick="addNumber(7)">7</button>
+            <button onclick="addNumber(8)">8</button>
+            <button onclick="addNumber(9)">9</button>
+            <button class="operator" onclick="addOperator('/')">/</button>
+            <button onclick="addNumber(4)">4</button>
+            <button onclick="addNumber(5)">5</button>
+            <button onclick="addNumber(6)">6</button>
+            <button class="operator" onclick="addOperator('*')">*</button>
+            <button onclick="addNumber(1)">1</button>
+            <button onclick="addNumber(2)">2</button>
+            <button onclick="addNumber(3)">3</button>
+            <button class="operator" onclick="addOperator('-')">-</button>
+            <button onclick="addNumber(0)">0</button>
+            <button onclick="addNumber('.')">.</button>
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="addOperator('+')">+</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </body>
+
+    <script>
+        var firstOperand
+        var secondOperand
+        var operator
+        var display = document.getElementById('display')
+
+        function addNumber(number) {
+            if (display.value == '0') {
+                display.value = number
+            } else {
+                display.value += number
+            }
+        }
+
+        function addOperator(op) {
+            firstOperand = display.value
+            operator = op
+            display.value = '0'
+        }
+
+        function calculate() {
+            secondOperand = display.value
+            display.value
+            switch (operator) {
+                case '+':
+                    display.value = parseFloat(firstOperand) + parseFloat(secondOperand)
+                    break
+                case '-':
+                    display.value = parseFloat(firstOperand) - parseFloat(secondOperand)
+                    break
+                case '*':
+                    display.value = parseFloat(firstOperand) * parseFloat(secondOperand)
+                    break
+                case '/':
+                    display.value = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    break
+            }
+        }
+
+        function clearDisplay() {
+            display.value = '0'
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            width: 300px;
+            height: 400px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .calculator input[type='text'] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            background-color: #fff;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .calculator button {
+            width: 25%;
+            height: 60px;
+            background-color: #fff;
+            border: none;
+            font-size: 20px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .calculator button.operator {
+            background-color: #f1c40f;
+            color: #fff;
+        }
+
+        .calculator button.equal {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+    </style>
+</html>

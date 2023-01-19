@@ -1,0 +1,40 @@
+<!--14. Write a JavaScript program to change the characters (lower case) in a string where a turns 
+into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript program to change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.</title>
+    </head>
+
+    <body>
+        <h3>JavaScript program to change the characters (lower case) in a string where a turns into z, b turns into y, c turns into x, ..., n turns into m, m turns into n, ..., z turns into a.</h3>
+        <input type="text" id="str" placeholder="Enter a string">
+        <input type="button" value="Change" onclick="changeString()">
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function changeString() {
+            var str = document.getElementById("str").value;
+            var newStr = "";
+            for (var i = 0; i < str.length; i++) {
+                var char = str.charAt(i);
+                if (char >= "a" && char <= "z") {
+                    var charCode = char.charCodeAt(0);
+                    var newCharCode = 122 - (charCode - 97);
+                    var newChar = String.fromCharCode(newCharCode);
+                    newStr += newChar;
+                } else if (char >= "A" && char <= "Z") {
+                    var charCode = char.charCodeAt(0);
+                    var newCharCode = 90 - (charCode - 65);
+                    var newChar = String.fromCharCode(newCharCode);
+                    newStr += newChar;
+                } else {
+                    newStr += char;
+                }
+            }
+            document.getElementById("output").innerHTML = "New string: " + newStr;
+        }
+    </script>
+</html>

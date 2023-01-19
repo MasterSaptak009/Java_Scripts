@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonakki</title>
+  </head>
+  <body>
+    <script>
+      function fibo(n) {
+        let a = 0,
+          b = 1,
+          temp;
+        while (n >= 0) {
+          console.log(a);
+          temp = a;
+          a = b;
+          b = temp + b;
+          n--;
+        }
+      }
+      fibo(2);
+    </script>
+  </body>
+</html>

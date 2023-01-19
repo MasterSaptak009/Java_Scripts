@@ -1,0 +1,40 @@
+<!--Write a JavaScript program to find the maximum integer n such that 1 + 2 + ... + n <= a given integer.-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      JavaScript program to find the maximum integer n such that 1 + 2 + ... + n
+      <= a given integer.
+    </title>
+  </head>
+
+  <body>
+    <h3>
+      JavaScript program to find the maximum integer n such that 1 + 2 + ... + n
+      <= a given integer.
+    </h3>
+    <input type="text" id="num" placeholder="Enter a number" />
+    <button
+      onclick="document.getElementById('result').innerHTML=findMax(document.getElementById('num').value)"
+    >
+      Find N
+    </button>
+    <p id="result"></p>
+  </body>
+
+  <script>
+    function findMax(num) {
+        
+      var sum = 0;
+      var i = 0;
+      
+      while (sum <= num) {
+         i++;
+        sum += i;
+       
+      }
+      return i - 1;
+    }
+  </script>
+</html>

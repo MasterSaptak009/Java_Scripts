@@ -1,0 +1,68 @@
+<!--binary search-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Binary Search</title>
+    </head>
+
+    <body>
+        <h1>Binary Search</h1>
+        <form>
+            <label for="input">Enter number:</label>
+            <input type="number" id="input">
+            <input type="button" value="Add" onclick="add()">
+            <input type="button" value="Delete" onclick="del()">
+            <input type="button" value="Search" onclick="search()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        var arr = [];
+
+        function add() {
+            var input = document.getElementById("input").value;
+            arr.push(input);
+            arr.sort(function(a, b) {
+                return a - b;
+            });
+            document.getElementById("output").innerHTML = "Array: " + arr;
+        }
+
+        function del() {
+            var input = document.getElementById("input").value;
+            var index = arr.indexOf(input);
+            if (index > -1) {
+                arr.splice(index, 1);
+                document.getElementById("output").innerHTML = "Array: " + arr;
+            } else {
+                document.getElementById("output").innerHTML = "Not found";
+            }
+        }
+
+        function search() {
+            var input = document.getElementById("input").value;
+            var low = 0;
+            var high = arr.length - 1;
+            var mid = 0;
+            var found = false;
+            while (low <= high) {
+                mid = Math.floor((low + high) / 2);
+                if (arr[mid] == input) {
+                    found = true;
+                    break;
+                } else if (arr[mid] < input) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+            if (found) {
+                document.getElementById("output").innerHTML = "Found at index: " + mid;
+            } else {
+                document.getElementById("output").innerHTML = "Not found";
+            }
+        }
+    </script>
+</html>

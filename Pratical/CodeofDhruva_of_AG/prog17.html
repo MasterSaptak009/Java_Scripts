@@ -1,0 +1,66 @@
+<!--Take input from users in a web page, where the page will show the current date and time on 
+    loading, and show the sorted list. Sorting must be done using Heap sort, use JavaScrip…-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorting using Heap sort</title>
+    </head>
+
+    <body onload="displayDate()">
+        <h1>Sorting using Heap sort</h1>
+        <p>Current date and time: <span id="date"></span></p>
+        <form>
+            <label for="numbers">Enter numbers separated by commas:</label>
+            <input type="text" id="numbers" size="50">
+            <input type="button" value="Sort" onclick="sortNumbers()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function displayDate() {
+            var date = new Date();
+            document.getElementById("date").innerHTML = date;
+        }
+
+        function sortNumbers() {
+            var input = document.getElementById("numbers").value;
+            var numbers = input.split(",");
+            numbers = numbers.map(Number);
+            heapSort(numbers);
+            document.getElementById("output").innerHTML = "Sorted numbers: " + numbers;
+        }
+
+        function heapSort(numbers) {
+            var n = numbers.length;
+            for (var i = Math.floor(n / 2) - 1; i >= 0; i--) {
+                heapify(numbers, n, i);
+            }
+            for (var i = n - 1; i >= 0; i--) {
+                var temp = numbers[0];
+                numbers[0] = numbers[i];
+                numbers[i] = temp;
+                heapify(numbers, i, 0);
+            }
+        }
+
+        function heapify(numbers, n, i) {
+            var largest = i;
+            var left = 2 * i + 1;
+            var right = 2 * i + 2;
+            if (left < n && numbers[left] > numbers[largest]) {
+                largest = left;
+            }
+            if (right < n && numbers[right] > numbers[largest]) {
+                largest = right;
+            }
+            if (largest != i) {
+                var temp = numbers[i];
+                numbers[i] = numbers[largest];
+                numbers[largest] = temp;
+                heapify(numbers, n, largest);
+            }
+        }
+    </script>
+</html>

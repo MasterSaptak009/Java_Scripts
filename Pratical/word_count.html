@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>Enter a string:</label>
+        <input type="text" id="inputString">
+        <br>
+        <button type="button" onclick="countChars()">Submit</button>
+      </form>
+      
+</body>
+<script>
+function countChars() {
+    let inputString = document.getElementById("inputString").value;
+    let vowelCount = 0;
+    let wordCount = 0;
+    let digitCount = 0;
+    let uppercaseCount = 0;
+    let lowercaseCount = 0;
+
+    for (let i = 0; i < inputString.length; i++) {
+        if (inputString[i].match(/[aeiouAEIOU]/)) {
+            vowelCount++;
+        }
+        if (inputString[i].match(/[0-9]/)) {
+            digitCount++;
+        }
+        if (inputString[i].match(/[A-Z]/)) {
+            uppercaseCount++;
+        }
+        if (inputString[i].match(/[a-z]/)) {
+            lowercaseCount++;
+        }
+        if (inputString[i] === " " && inputString[i-1] !== " ") {
+            wordCount++;
+        }
+    }
+
+    if (inputString[inputString.length - 1] !== " ") {
+        wordCount++;
+    }
+
+    console.log("Vowel Count: " + vowelCount);
+    console.log("Word Count: " + wordCount);
+    console.log("Digit Count: " + digitCount);
+    console.log("Uppercase Count: " + uppercaseCount);
+    console.log("Lowercase Count: " + lowercaseCount);
+}
+</script>
+</html>

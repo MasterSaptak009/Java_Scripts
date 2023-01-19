@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <h1>Sorting using insertion sort</h1>
+    <p>Current date and time: <span id="date"></span></p>
+    <form>
+        <label for="numbers">Enter numbers separated by commas:</label>
+        <input type="text" id="numbers" size="50">
+        <input type="button" value="Sort" onclick="sortNumbers()">
+    </form>
+    <p id="output"></p>
+</body>
+<script>
+        function displayDate(){
+        var date = new Date();
+        document.getElementById("date").innerHTML = date;
+    }
+    function sortNumbers(){
+        let input = document.getElementById("numbers").value;
+        let number = input.split(",");
+        number = number.map(Number);
+        bubleSort(number);
+        document.getElementById("output").innerHTML = "Sorted numbers: "+ number;
+    }
+    function bubleSort(number){
+        /* sort the number using bubble sort*/
+        function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = len-1; i>=0; i--){
+        for(var j = 1; j<=i; j++){
+            if(arr[j-1]>arr[j]){
+                var temp = arr[j-1];
+                arr[j-1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+    }
+</script>
+</html>

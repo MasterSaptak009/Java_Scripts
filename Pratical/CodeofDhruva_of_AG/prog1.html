@@ -1,0 +1,32 @@
+<!--1. Enter date of birth of the user and display his age and current date.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Age Calculator</title>
+    </head>
+
+    <body>
+        <h1>Age Calculator</h1>
+        <form>
+            <label for="date">Enter date of birth:</label>
+            <input type="date" id="date">
+            <input type="button" value="Calculate" onclick="calculateAge()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function calculateAge() {
+            var date = document.getElementById("date").value;
+            var today = new Date();
+            var birthDate = new Date(date);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            document.getElementById("output").innerHTML = "Age: " + age + " Year" + "<br>Current date: " + today;
+        }
+    </script>
+</html>

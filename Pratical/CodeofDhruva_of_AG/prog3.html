@@ -1,0 +1,50 @@
+<!--3. Take input from users in a web page, where the page will show the current date and time on
+loading, and show the sorted list. Sorting must be done using selection sort, use JavaScript for sorting.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorting using Selection sort</title>
+    </head>
+
+    <body onload="displayDate()">
+        <h1>Sorting using selection sort</h1>
+        <p>Current date and time: <span id="date"></span></p>
+        <form>
+            <label for="numbers">Enter numbers separated by commas:</label>
+            <input type="text" id="numbers" size="50">
+            <input type="button" value="Sort" onclick="sortNumbers()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function displayDate() {
+            var date = new Date();
+            document.getElementById("date").innerHTML = date;
+        }
+
+        function sortNumbers() {
+            var input = document.getElementById("numbers").value;
+            var numbers = input.split(",");
+            numbers = numbers.map(Number);
+            selectionSort(numbers);
+            document.getElementById("output").innerHTML = "Sorted numbers: " + numbers;
+        }
+        
+        function selectionSort(numbers) {
+            var n = numbers.length;
+            for (var i = 0; i < n - 1; i++) {
+                var min = i;
+                for (var j = i + 1; j < n; j++) {
+                    if (numbers[j] < numbers[min]) {
+                        min = j;
+                    }
+                }
+                var temp = numbers[i];
+                numbers[i] = numbers[min];
+                numbers[min] = temp;
+            }
+        }
+    </script>
+</html>

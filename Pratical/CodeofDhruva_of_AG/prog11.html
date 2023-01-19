@@ -1,0 +1,40 @@
+<!--11. Write a JavaScript program to find the number of elements which presents in both of the given arrays.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Find commmon elements in two arrays</title>
+    </head>
+
+    <body>
+        <h1>Find commmon elements in two arrays</h1>
+        <form>
+            <label for="array1">Enter elements of first array separated by commas:</label>
+            <input type="text" id="array1" size="50">
+            <br>
+            <label for="array2">Enter elements of second array separated by commas:</label>
+            <input type="text" id="array2" size="50">
+            <br>
+            <input type="button" value="Find" onclick="findCommonElements()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function findCommonElements() {
+            var input1 = document.getElementById("array1").value;
+            var input2 = document.getElementById("array2").value;
+            var array1 = input1.split(",");
+            var array2 = input2.split(",");
+            var commonElements = [];
+            for (var i = 0; i < array1.length; i++) {
+                for (var j = 0; j < array2.length; j++) {
+                    if (array1[i] == array2[j]) {
+                        commonElements.push(array1[i]);
+                    }
+                }
+            }
+            document.getElementById("output").innerHTML = "Common elements: " + commonElements;
+        }
+    </script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  Hex: <input type="text" id="hexInput">
+  <br><br>
+  ASCII: <input type="text" id="asciiInput">
+  <br><br>
+  
+  <button onclick="convert()">Convert</button>
+</form>
+
+<script>
+function convert() {
+  var hexInput = document.getElementById("hexInput").value;
+  var asciiInput = document.getElementById("asciiInput").value;
+  
+  if (hexInput) {
+    var asciiOutput = "";
+    for (var i = 0; i < hexInput.length; i += 2) {
+      asciiOutput += String.fromCharCode(parseInt(hexInput.substr(i, 2), 16));
+    }
+    document.getElementById("asciiInput").value = asciiOutput;
+  } else if (asciiInput) {
+    var hexOutput = "";
+    for (var i = 0; i < asciiInput.length; i++) {
+      var hex = asciiInput.charCodeAt(i).toString(16);
+      hexOutput += ("0" + hex).slice(-2);
+    }
+    document.getElementById("hexInput").value = hexOutput;
+  }
+}
+</script>
+
+</body>
+</html>

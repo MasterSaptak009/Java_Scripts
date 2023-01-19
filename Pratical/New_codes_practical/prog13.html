@@ -1,0 +1,60 @@
+<!--15. Take input from users in a web page, where the page will show the current date and time on loading,
+     and show the sorted list. Sorting must be done using Quick sort, use JavaScript for sorting.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sort using Quick Sort</title>
+    </head>
+
+    <body onload="displayDate()">
+        <h1>Sort using Quick Sort</h1>
+        <p>Current date and time: <span id="date"></span></p>
+        <form>
+            <label for="numbers">Enter numbers separated by commas:</label>
+            <input type="text" id="numbers" size="50">
+            <input type="button" value="Sort" onclick="sortNumbers()">
+        </form>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        function displayDate() {
+            var date = new Date();
+            document.getElementById("date").innerHTML = date;
+        }
+
+        function sortNumbers() {
+            var input = document.getElementById("numbers").value;
+            var numbers = input.split(",");
+            numbers = numbers.map(Number);
+            quickSort(numbers, 0, numbers.length - 1);
+            document.getElementById("output").innerHTML = "Sorted numbers: " + numbers;
+        }
+
+        function quickSort(numbers, low, high) {
+            if (low < high) {
+                var pi = partition(numbers, low, high);
+                quickSort(numbers, low, pi - 1);
+                quickSort(numbers, pi + 1, high);
+            }
+        }
+
+        function partition(numbers, low, high) {
+            var pivot = numbers[high];
+            var i = low - 1;
+            for (var j = low; j < high; j++) {
+                if (numbers[j] < pivot) {
+                    i++;
+                    var temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+            var temp = numbers[i + 1];
+            numbers[i + 1] = numbers[high];
+            numbers[high] = temp;
+            return i + 1;
+        }
+    </script>
+</html>

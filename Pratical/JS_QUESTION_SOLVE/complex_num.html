@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex_Number</title>
+</head>
+<body>
+    <label for="">First_Number</label>
+    <input type="text" id="fnum"><br>
+    <label for="">Second_Number</label>
+    <input type="text" id="snum">
+    <button value="submit" onclick="multi()" >Submit</button>
+
+
+<script>
+    function multi(a, b) {
+    let real = a.real * b.real - a.imag * b.imag;
+    let imag = a.real * b.imag + a.imag * b.real;
+    return {real, imag};
+  }
+  
+  let a = {real: prompt(""), imag: prompt("")};
+  let b = {real: prompt(""), imag: prompt("")};
+  let result = multi(a, b);
+  //console.log(`(${a.real} + ${a.imag}i) * (${b.real} + ${b.imag}i) = ${result.real} + ${result.imag}i`);
+ 
+        document.write(`(${a.real} + ${a.imag}i) * (${b.real} + ${b.imag}i) = ${result.real} + ${result.imag}i`);
+</script>
+
+</body>
+</html>

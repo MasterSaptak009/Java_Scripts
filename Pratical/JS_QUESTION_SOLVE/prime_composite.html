@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime_Composite</title>
+  </head>
+  <body>
+    <script>
+      function isprime(num) {
+        if (num <= 1) {
+          return false;
+        }
+        for (let i = 2; 1 <= Math.sqrt(num); i++) {
+          if (num % i == 0) {
+            return false;
+          }
+          return true;
+        }
+      }
+      console.log(isprime(10));
+
+      function iscomposite(num) {
+        if (num <= 3) {
+          return false;
+        }
+        for (i = 2; i <= Math.sqrt(num); i++) {
+          return true;
+        }
+        return false;
+      }
+      console.log(iscomposite(10));
+    </script>
+  </body>
+</html>

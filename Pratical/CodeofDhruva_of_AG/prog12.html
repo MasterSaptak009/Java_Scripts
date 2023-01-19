@@ -1,0 +1,32 @@
+<!--12. In a given string change lower case letters to upper case and upper-case ones to lower-case one.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>In a given string change lower case letters to upper case and upper-case ones to lower-case.</title>
+    </head>
+
+    <body>
+        <h1>In a given string change lower case letters to upper case and upper-case ones to lower-case.</h1>
+        <input type="text" id="str" placeholder="Enter a string">
+        <button
+            onclick="document.getElementById('result').innerHTML=changeCase(document.getElementById('str').value)">Change
+            Case</button>
+        <p id="result"></p>
+    </body>
+
+    <script>
+        function changeCase(str) {
+            var newstr = "";
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] == str[i].toUpperCase()) {
+                    newstr += str[i].toLowerCase();
+                }
+                else {
+                    newstr += str[i].toUpperCase();
+                }
+            }
+            return newstr;
+        }
+    </script>
+</html>

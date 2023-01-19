@@ -1,0 +1,46 @@
+<!--9. Write a html  program to check whether it is possible to replace $ in a given 
+expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.</title>
+    </head>
+
+    <body>
+        <h1>Check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.</h1>
+        <form>
+            <label for="xInput">Enter x:</label>
+            <input type="text" id="xInput" size="50">
+            <br>
+            <label for="yInput">Enter y:</label>
+            <input type="text" id="yInput" size="50">
+            <br>
+            <label for="zInput">Enter z:</label>
+            <input type="text" id="zInput" size="50">
+            <br>
+            <input type="button" value="Check" onclick="checkExpression()">
+        <p id="result"></p>
+    </body>
+
+    <script>
+        function checkExpression() {
+            var x = parseInt(document.getElementById("xInput").value);
+            var y = parseInt(document.getElementById("yInput").value);
+            var z = parseInt(document.getElementById("zInput").value);
+            var result = document.getElementById("result");
+
+            if(x + y == z) {
+                result.innerHTML = "x + y = z";
+            } else if(x - y == z) {
+                result.innerHTML = "x - y = z";
+            } else if(x * y == z) {
+                result.innerHTML = "x * y = z";
+            } else if(x / y == z) {
+                result.innerHTML = "x / y = z";
+            } else {
+                result.innerHTML = "No expression possible";
+            }
+        }
+    </script>
+</html>

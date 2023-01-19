@@ -1,0 +1,40 @@
+<!--nCr and nPr n and r given-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>nCr and nPr n and r given</title>
+    </head>
+    
+    <body>
+        <h1>nCr and nPr n and r given</h1>
+        <form>
+            <label for="n">Enter n:</label>
+            <input type="number" id="n">
+            <label for="r">Enter r:</label>
+            <input type="number" id="r">
+            <input type="button" value="Find nCr and nPr" onclick="find()">
+        </form>
+        <p id="output"></p>
+    </body>
+    
+    <script>
+        function find() {
+            var n = document.getElementById("n").value;
+            var r = document.getElementById("r").value;
+            var nCr = 1;
+            var nPr = 1;
+            
+            for (var i = 1; i <= n; i++) {
+                if (i <= r) {
+                    nCr *= i;
+                }
+                nPr *= i;
+            }
+            
+            nCr = nPr / nCr;
+            
+            document.getElementById("output").innerHTML = "nCr: " + nCr + "<br>nPr: " + nPr;
+        }
+    </script>
+</html>

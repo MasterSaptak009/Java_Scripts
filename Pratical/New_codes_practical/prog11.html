@@ -1,0 +1,59 @@
+<!--vowel word digit count in a string-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vowel word digit count in a string</title>
+    </head>
+    
+    <body>
+        <h1>Vowel word digit count in a string</h1>
+        <form>
+            <label for="string">Enter string:</label>
+            <input type="text" id="string">
+            <input type="button" value="Count" onclick="count()">
+        </form>
+        <p id="output"></p>
+    </body>
+    
+    <script>
+        function count() {
+            var string = document.getElementById("string").value;
+            var vowel = 0;
+            var word = 1;
+            var digit = 0;
+            var consonant = 0;
+            var special = 0;
+            var space = 0;
+            var upper = 0;
+            var lower = 0;
+            var letter = 0;
+            var i = 0;
+            while (i < string.length) {
+                if (string[i] == "a" || string[i] == "e" || string[i] == "i" || string[i] == "o" || string[i] == "u" || string[i] == "A" || string[i] == "E" || string[i] == "I" || string[i] == "O" || string[i] == "U") {
+                    vowel++;
+                
+                    letter++;
+                } else if (string[i] == " ") {
+                    word++;
+                    space++;
+                } else if (string[i] >= "0" && string[i] <= "9") {
+                    digit++;
+                    word--;
+                } else if (string[i] >= "a" && string[i] <= "z") {
+                    consonant++;
+                    lower++;
+                    letter++;
+                } else if (string[i] >= "A" && string[i] <= "Z") {
+                    consonant++;
+                    upper++;
+                    letter++;
+                } else {
+                    special++;
+                }
+                i++;
+            }
+            document.getElementById("output").innerHTML = "Vowel: " + vowel + "<br>Word: " + word + "<br>Digit: " + digit + "<br>Consonant: " + consonant + "<br>Special: " + special + "<br>Space: " + space + "<br>Upper: " + upper + "<br>Lower: " + lower + "<br>Letter: " + letter;
+        }
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<!--count and show  unique element in two array-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Count and show unique element in two array</title>
+    </head>
+    
+    <body>
+        <h1>Count and show unique element in two array</h1>
+        <form>
+            <label for="array1">Enter array 1:</label>
+            <input type="text" id="array1">
+            <label for="array2">Enter array 2:</label>
+            <input type="text" id="array2">
+            <input type="button" value="Count" onclick="countUnique()">
+        </form>
+        <p id="output"></p>
+    </body>
+    
+    <script>
+        function countUnique() {
+            var array1 = document.getElementById("array1").value.split(",");
+            var array2 = document.getElementById("array2").value.split(",");
+            var unique = [];
+            var count = 0;
+            for (var i = 0; i < array1.length; i++) {
+                if (array2.indexOf(array1[i]) == -1) {
+                    unique.push(array1[i]);
+                    count++;
+                }
+            }
+            for (var i = 0; i < array2.length; i++) {
+                if (array1.indexOf(array2[i]) == -1) {
+                    unique.push(array2[i]);
+                    count++;
+                }
+            }
+            document.getElementById("output").innerHTML = "Unique elements: " + unique + "<br>Count: " + count;
+        }
+    </script>
+</html>

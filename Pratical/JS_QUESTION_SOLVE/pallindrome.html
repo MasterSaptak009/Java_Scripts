@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome</title>
+  </head>
+  <body>
+    <label for="">Input The word</label>
+    <input type="text" placeholder="Input The Word here" id="palin" /><br />
+    <button value="submit" onclick="pal()">Submit</button>
+    <label for="">Answer</label>
+    <input type="text" id="answer" /><br />
+
+    <script>
+      function pal(){
+        //let ans = document.getElementById('answer');
+        let a = document.getElementById('palin').value;
+
+       let b = a.length
+       for(let i = 0;i<b/2;i++){
+        if(a[i]!= a[b-1-i]){
+         // alert("No")
+          document.getElementById('answer').value= 'No';
+        }
+        else{
+           //alert("Yes")
+          document.getElementById('answer').value = 'Yes';
+        }
+
+       }
+
+      }
+    </script>
+  </body>
+</html>
